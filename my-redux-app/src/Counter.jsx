@@ -13,7 +13,7 @@ export default function Counter() {
   const doubleCounter = useSelector(getDoubleCounter);
 
   // selectors dengan parameter, cara penggunaanya berbeda dengan selector yang tanpa parameter
-  const trippleCounter = useSelector( state => getCounter(state, 3))
+  const trippleCounter = useSelector( state => getCounter(state, 3))  // ingat selectors ini aku ketrigger jika nilai state-berubah
    
    // dispatch ini digunakan untuk memanggil action yang kita export dari slice
    // dispatch ini seperti setStatenya

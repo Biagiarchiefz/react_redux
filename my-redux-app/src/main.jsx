@@ -8,12 +8,17 @@ import App from "./App.jsx";
 import { counterSlice } from "./counterSlice.js";
 import Counter from "./counter.jsx";
 import Counter2 from "./Counter2.jsx";
+import { todoListSlice } from "./todoListSlice.js";
+import ListTodo from "./ListTodo.jsx";
+import AddTodo from "./AddTodo.jsx";
+import UpdateTodo from "./UpdateTodo.jsx";
 
 const store = configureStore({
   // configureStore digunakan untuk membuat store
   reducer: {
     // kita registrasikan reducer yang kita buat menggunakan slice tdi dari counterSlice.js
     counter: counterSlice.reducer, // nama kunci counter di sini bebas tpi bisa mencerminkan nama slicenya
+    todoList: todoListSlice.reducer
   },
 });
 
@@ -22,6 +27,9 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+           <Route path={"/todolist"} element={<ListTodo/>}/>
+          <Route path={"/todolist/add"} element={<AddTodo/>}/>
+          <Route path="/todoList/:id/edit" element={<UpdateTodo/>}/>
           <Route path={"/"} element={<App />} />
           <Route
             path={"/counter"}
